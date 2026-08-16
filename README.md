@@ -11,25 +11,28 @@ Two ways to connect the vault to a `dsh` agent:
 
 Both can be mounted together — the plugin handles injection, the MCP row gives the agent explicit memory tools.
 
-## Quickstart
+## Quickstart (one command)
 
 ```sh
 # 1. Install the Perseus Vault binary (pinned release)
 cargo install perseus-vault@2.23.0   # or grab a release binary / Docker image
 
-# 2. Run dsh with the MCP overlay
-npx @deepseek-ai/dsh web --patch "$PWD/examples/dsh-mcp/perseus-vault.cordis.yml"
+# 2. Add the bundle to a dsh profile — both the memory-injection plugin and
+#    the MCP tool row are wired automatically (no hand-written config)
+dsh plugin add -w @perseus-computing/dsh
 ```
 
-The agent now sees `mcp__perseus_vault__recall`, `mcp__perseus_vault__remember`, etc. For automatic injection, also mount the plugin:
+(`-w` is required: a dsh profile is a pnpm workspace root, so pnpm's
+add-to-root guard must be waived explicitly.)
 
-```yaml
-- insert:
-    - id: perseus-vault-memory
-      name: '@perseus-computing/dsh'   # or a local path while testing
-      config:
-        command: perseus-vault
-```
+The agent now gets automatic pre-step memory injection **plus** the
+`mcp__perseus_vault__recall` / `remember` / `capture` tool surface. Adjust
+`command` (vault binary path) and other options in the web UI under
+**Settings → Plugins → Perseus Vault**, or with a `--patch` overlay that
+replaces the bundle rows.
+
+Prefer explicit config instead of the bundle? See
+[examples/dsh-mcp/perseus-vault.cordis.yml](examples/dsh-mcp/perseus-vault.cordis.yml).
 
 See [examples/dsh-mcp/README.md](examples/dsh-mcp/README.md) and [packages/perseus-vault/README.md](packages/perseus-vault/README.md) for details.
 

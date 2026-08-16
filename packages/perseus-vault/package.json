@@ -1,6 +1,6 @@
 {
   "name": "@perseus-computing/dsh",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Perseus Vault memory plugin for DeepSeek Harness: automatic pre-step recall injection from a governed memory vault",
   "license": "MIT",
   "type": "module",
@@ -12,7 +12,10 @@
       "default": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist",
+    "cordis.patch.yml"
+  ],
   "engines": {
     "node": ">=22.18"
   },
@@ -40,5 +43,10 @@
     "@deepseek-ai/cordis": "^4.0.1",
     "@types/node": "^22.0.0",
     "typescript": "^5.5.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
   }
 }

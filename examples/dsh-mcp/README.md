@@ -14,6 +14,10 @@ DSH parses the selected Cordis overlay, starts the configured stdio command (or 
 |---|---:|---|---|
 | [Perseus Vault](https://github.com/Perseus-Computing-LLC/perseus-vault) | `perseus-vault@2.23.0` | stdio (this file) or `streamable-http` (sibling file) | `cargo install perseus-vault@2.23.0`, or a pinned release binary / Docker image |
 
+## One-command alternative
+
+The plugin is also published as a dsh bundle: `dsh plugin add -w @perseus-computing/dsh` wires the injection plugin AND this MCP row automatically.
+
 ## Enable
 
 ```sh

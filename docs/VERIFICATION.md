@@ -14,6 +14,7 @@ Verified 2026-08-16 against DeepSeek Harness `0.1.0-rc.6` (headless profile) and
 | Control | none (fresh `DSH_HOME`) | `unknown` |
 | MCP row + plugin | `perseus-vault.cordis.yml` + `@perseus-computing/dsh` | `7XQ4` |
 | Plugin only | `@perseus-computing/dsh` alone | `7XQ4` |
+| Bundle (`dsh plugin add`, fresh profile, no overlay) | `@perseus-computing/dsh` as a `dsh.bundle` | `7XQ4` |
 
 ## Conclusions
 

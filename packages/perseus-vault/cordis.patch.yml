@@ -1,0 +1,21 @@
+# Perseus Vault bundle patch: one `dsh plugin add @perseus-computing/dsh` mounts
+# BOTH the memory-injection plugin and the MCP tool row, so the agent gets
+# push-based recall injection plus pull-based memory tools with no hand-written
+# config. `command: perseus-vault` assumes the vault binary is on PATH; adjust
+# in the web UI (Settings → Plugins → Perseus Vault) or by patching this row.
+- insert:
+    - id: perseus-vault-memory
+      name: '@perseus-computing/dsh'
+      config:
+        command: perseus-vault
+        timeoutMs: 3000
+    - id: memory-perseus-vault
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: perseus_vault
+        transport: stdio
+        command: perseus-vault
+        args: [serve, --transport, stdio]
+        cwd: !!js process.cwd()
+        env:
+          PERSEUS_VAULT_TOOL_SCOPE: agent

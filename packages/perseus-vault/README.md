@@ -12,7 +12,16 @@ The harness's MCP row is pull-based — the agent must remember to call `mcp__pe
 
 ## Install
 
-From npm:
+**Recommended — as a dsh bundle** (installs the package AND wires it into the
+profile; the web UI shows its settings card under Settings → Plugins):
+
+```sh
+dsh plugin add -w @perseus-computing/dsh
+```
+
+(`-w` is required: a dsh profile is a pnpm workspace root.)
+
+**Plain npm install** (add the row below to a Cordis overlay yourself):
 
 ```sh
 npm install @perseus-computing/dsh
