@@ -26,7 +26,7 @@ The agent now sees `mcp__perseus_vault__recall`, `mcp__perseus_vault__remember`,
 ```yaml
 - insert:
     - id: perseus-vault-memory
-      name: '@perseus-vault/dsh'   # or a local path while testing
+      name: '@perseus-computing/dsh'   # or a local path while testing
       config:
         command: perseus-vault
 ```

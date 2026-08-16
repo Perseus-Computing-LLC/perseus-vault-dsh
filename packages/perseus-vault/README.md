@@ -1,4 +1,4 @@
-# @perseus-vault/dsh
+# @perseus-computing/dsh
 
 Perseus Vault memory plugin for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness): automatic, push-based memory injection.
 
@@ -12,10 +12,10 @@ The harness's MCP row is pull-based — the agent must remember to call `mcp__pe
 
 ## Install
 
-From npm (once published):
+From npm:
 
 ```sh
-npm install @perseus-vault/dsh
+npm install @perseus-computing/dsh
 ```
 
 From the repository while it is unpublished:

@@ -1,5 +1,5 @@
 {
-  "name": "@perseus-vault/dsh",
+  "name": "@perseus-computing/dsh",
   "version": "0.1.0",
   "description": "Perseus Vault memory plugin for DeepSeek Harness: automatic pre-step recall injection from a governed memory vault",
   "license": "MIT",
