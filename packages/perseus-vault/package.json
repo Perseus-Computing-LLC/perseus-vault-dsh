@@ -1,0 +1,44 @@
+{
+  "name": "@perseus-vault/dsh",
+  "version": "0.1.0",
+  "description": "Perseus Vault memory plugin for DeepSeek Harness: automatic pre-step recall injection from a governed memory vault",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "memory",
+    "perseus-vault",
+    "mcp",
+    "agent-memory"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Perseus-Computing-LLC/perseus-vault-dsh.git",
+    "directory": "packages/perseus-vault"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.5.0"
+  }
+}

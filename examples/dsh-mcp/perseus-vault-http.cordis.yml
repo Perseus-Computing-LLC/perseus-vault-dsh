@@ -1,0 +1,17 @@
+# Opt-in reference for a REMOTE Perseus Vault over streamable-http. The
+# upstream service must already be running (e.g. `perseus-vault serve
+# --transport http --mcp-auth-token <token>`), because DSH connects to it
+# rather than supervising it. Same agent-scope tool surface as the stdio row.
+#
+# Put the token in an ambient variable (or any secret manager) and reference
+# it here — never paste the literal value into YAML.
+- insert:
+    - id: memory-perseus-vault
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: perseus_vault
+        transport: streamable-http
+        url: http://localhost:8768/message
+        headers:
+          Authorization: !!js '`Bearer ${process.env.PERSEUS_VAULT_MCP_TOKEN}`'
+        failOnStartupError: true

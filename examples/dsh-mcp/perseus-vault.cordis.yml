@@ -1,0 +1,20 @@
+# Opt-in reference for Perseus Vault 2.23.0. Install the pinned `perseus-vault`
+# executable first (cargo install perseus-vault@2.23.0, a release binary, or
+# Docker); storage, encryption, and workspace binding remain Perseus
+# Vault-owned. DSH launches and stops the child with the plugin lifecycle.
+#
+# PERSEUS_VAULT_TOOL_SCOPE=agent advertises only the agent-safe tier (48
+# tools: recall/remember/context/capture/journal/state/links/timeline).
+# Ops and admin tools (purge, erase, migrate, reindex, authority_*) are
+# excluded from the advertised surface.
+- insert:
+    - id: memory-perseus-vault
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: perseus_vault
+        transport: stdio
+        command: perseus-vault
+        args: [serve, --transport, stdio]
+        cwd: !!js process.cwd()
+        env:
+          PERSEUS_VAULT_TOOL_SCOPE: agent

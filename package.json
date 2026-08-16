@@ -1,0 +1,8 @@
+{
+  "name": "perseus-vault-dsh",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Perseus Vault integration for DeepSeek Harness: MCP config example + native memory plugin",
+  "license": "MIT",
+  "workspaces": ["packages/*"]
+}
